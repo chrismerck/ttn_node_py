@@ -41,9 +41,9 @@ class LoRaSerial(object):
         # timeout for write
         self._ser.writeTimeout = 0
 
-        #print "Resetting LoRa Tranceiver..."
+        print "Resetting LoRa Tranceiver..."
         self.write_command('sys reset',False)
-        #print "Configuring Tranceiver..."
+        print "Configuring Tranceiver..."
         self.write_command('radio set mod lora')
         self.write_command('mac pause')
 
@@ -60,7 +60,7 @@ class LoRaSerial(object):
         self._ser.write(str + '\r\n')
         return self.read()
     
-    def write_command(self, config_str, check_resp=False):
+    def write_command(self, config_str, check_resp=True):
         '''
             writes out a command
         '''
@@ -103,19 +103,27 @@ if __name__ == "__main__":
   while True:
     print "Sending V..."
     loramote.write('radio cw on')
+    print "Read: ", loramote.read()
     time.sleep(0.1)
     loramote.write('radio cw off')
+    print "Read: ", loramote.read()
     time.sleep(0.1)
     loramote.write('radio cw on')
+    print "Read: ", loramote.read()
     time.sleep(0.1)
     loramote.write('radio cw off')
+    print "Read: ", loramote.read()
     time.sleep(0.1)
     loramote.write('radio cw on')
+    print "Read: ", loramote.read()
     time.sleep(0.1)
     loramote.write('radio cw off')
+    print "Read: ", loramote.read()
     time.sleep(0.1)
     loramote.write('radio cw on')
+    print "Read: ", loramote.read()
     time.sleep(2)
     loramote.write('radio cw off')
+    print "Read: ", loramote.read()
     time.sleep(0.5)
 
