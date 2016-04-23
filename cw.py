@@ -101,6 +101,7 @@ if __name__ == "__main__":
   period = int(sys.argv[3])
   loramote = LoRaSerial(port,dev_addr)
   while True:
+    print "Sending V..."
     loramote.write('radio cw on')
     time.sleep(0.1)
     loramote.write('radio cw off')
